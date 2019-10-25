@@ -1,0 +1,59 @@
+include('Axioms/HL4001^2.ax').
+thf(tp_ty_2Eoption_2Eoption,type,(
+    ty_2Eoption_2Eoption: del > del )).
+
+thf(tp_c_2Eoption_2ENONE,type,(
+    c_2Eoption_2ENONE: del > $i )).
+
+thf(mem_c_2Eoption_2ENONE,axiom,(
+    ! [A_27a: del] :
+      ( mem @ ( c_2Eoption_2ENONE @ A_27a ) @ ( ty_2Eoption_2Eoption @ A_27a ) ) )).
+
+thf(tp_ty_2Eordinal_2Eordinal,type,(
+    ty_2Eordinal_2Eordinal: del > del )).
+
+thf(tp_c_2Eordinal_2Eomega,type,(
+    c_2Eordinal_2Eomega: del > $i )).
+
+thf(mem_c_2Eordinal_2Eomega,axiom,(
+    ! [A_27a: del] :
+      ( mem @ ( c_2Eordinal_2Eomega @ A_27a ) @ ( ty_2Eordinal_2Eordinal @ A_27a ) ) )).
+
+thf(tp_c_2Eordinal_2Epreds,type,(
+    c_2Eordinal_2Epreds: del > $i )).
+
+thf(mem_c_2Eordinal_2Epreds,axiom,(
+    ! [A_27a: del] :
+      ( mem @ ( c_2Eordinal_2Epreds @ A_27a ) @ ( arr @ ( ty_2Eordinal_2Eordinal @ A_27a ) @ ( arr @ ( ty_2Eordinal_2Eordinal @ A_27a ) @ bool ) ) ) )).
+
+thf(tp_c_2Eordinal_2Eomax,type,(
+    c_2Eordinal_2Eomax: del > $i )).
+
+thf(mem_c_2Eordinal_2Eomax,axiom,(
+    ! [A_27a: del] :
+      ( mem @ ( c_2Eordinal_2Eomax @ A_27a ) @ ( arr @ ( arr @ ( ty_2Eordinal_2Eordinal @ A_27a ) @ bool ) @ ( ty_2Eoption_2Eoption @ ( ty_2Eordinal_2Eordinal @ A_27a ) ) ) ) )).
+
+thf(tp_c_2Emin_2E_3D,type,(
+    c_2Emin_2E_3D: del > $i )).
+
+thf(mem_c_2Emin_2E_3D,axiom,(
+    ! [A_27a: del] :
+      ( mem @ ( c_2Emin_2E_3D @ A_27a ) @ ( arr @ A_27a @ ( arr @ A_27a @ bool ) ) ) )).
+
+thf(ax_eq_p,axiom,(
+    ! [A: del,X: $i] :
+      ( ( mem @ X @ A )
+     => ! [Y: $i] :
+          ( ( mem @ Y @ A )
+         => ( ( p @ ( ap @ ( ap @ ( c_2Emin_2E_3D @ A ) @ X ) @ Y ) )
+          <=> ( X = Y ) ) ) ) )).
+
+thf(conj_thm_2Eordinal_2Eomax__preds__omega,lemma,(
+    ! [A_27a: del] :
+      ( ( ap @ ( c_2Eordinal_2Eomax @ A_27a ) @ ( ap @ ( c_2Eordinal_2Epreds @ A_27a ) @ ( c_2Eordinal_2Eomega @ A_27a ) ) )
+      = ( c_2Eoption_2ENONE @ ( ty_2Eordinal_2Eordinal @ A_27a ) ) ) )).
+
+thf(conj_thm_2Eordinal_2Eomega__islimit,conjecture,(
+    ! [A_27a: del] :
+      ( ( ap @ ( c_2Eordinal_2Eomax @ A_27a ) @ ( ap @ ( c_2Eordinal_2Epreds @ A_27a ) @ ( c_2Eordinal_2Eomega @ A_27a ) ) )
+      = ( c_2Eoption_2ENONE @ ( ty_2Eordinal_2Eordinal @ A_27a ) ) ) )).

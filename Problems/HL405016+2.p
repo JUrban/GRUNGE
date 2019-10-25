@@ -1,0 +1,219 @@
+include('Axioms/HL4001+2.ax').
+fof(mem_c_2Emin_2E_3D,axiom,(
+    ! [A_27a] :
+      ( ne(A_27a)
+     => mem(c_2Emin_2E_3D(A_27a),arr(A_27a,arr(A_27a,bool))) ) )).
+
+fof(ax_eq_p,axiom,(
+    ! [A] :
+      ( ne(A)
+     => ! [X] :
+          ( mem(X,A)
+         => ! [Y] :
+              ( mem(Y,A)
+             => ( p(ap(ap(c_2Emin_2E_3D(A),X),Y))
+              <=> X = Y ) ) ) ) )).
+
+fof(mem_c_2Ebool_2E_21,axiom,(
+    ! [A_27a] :
+      ( ne(A_27a)
+     => mem(c_2Ebool_2E_21(A_27a),arr(arr(A_27a,bool),bool)) ) )).
+
+fof(ax_all_p,axiom,(
+    ! [A] :
+      ( ne(A)
+     => ! [Q] :
+          ( mem(Q,arr(A,bool))
+         => ( p(ap(c_2Ebool_2E_21(A),Q))
+          <=> ! [X] :
+                ( mem(X,A)
+               => p(ap(Q,X)) ) ) ) ) )).
+
+fof(mem_c_2Ebool_2E_2F_5C,axiom,(
+    mem(c_2Ebool_2E_2F_5C,arr(bool,arr(bool,bool))) )).
+
+fof(ax_and_p,axiom,(
+    ! [Q] :
+      ( mem(Q,bool)
+     => ! [R] :
+          ( mem(R,bool)
+         => ( p(ap(ap(c_2Ebool_2E_2F_5C,Q),R))
+          <=> ( p(Q)
+              & p(R) ) ) ) ) )).
+
+fof(ne_ty_2Epair_2Eprod,axiom,(
+    ! [A0] :
+      ( ne(A0)
+     => ! [A1] :
+          ( ne(A1)
+         => ne(ty_2Epair_2Eprod(A0,A0)) ) ) )).
+
+fof(mem_c_2Epair_2E_2C,axiom,(
+    ! [A_27a] :
+      ( ne(A_27a)
+     => ! [A_27b] :
+          ( ne(A_27b)
+         => mem(c_2Epair_2E_2C(A_27a,A_27a),arr(A_27a,arr(A_27b,ty_2Epair_2Eprod(A_27a,A_27a)))) ) ) )).
+
+fof(mem_c_2Epair_2EUNCURRY,axiom,(
+    ! [A_27a] :
+      ( ne(A_27a)
+     => ! [A_27b] :
+          ( ne(A_27b)
+         => ! [A_27c] :
+              ( ne(A_27c)
+             => mem(c_2Epair_2EUNCURRY(A_27a,A_27a,A_27a),arr(arr(A_27a,arr(A_27b,A_27c)),arr(ty_2Epair_2Eprod(A_27a,A_27a),A_27c))) ) ) ) )).
+
+fof(conj_thm_2Epair_2EUNCURRY__DEF,lemma,(
+    ! [A_27a] :
+      ( ne(A_27a)
+     => ! [A_27b] :
+          ( ne(A_27b)
+         => ! [A_27c] :
+              ( ne(A_27c)
+             => ! [V0f] :
+                  ( mem(V0f,arr(A_27a,arr(A_27b,A_27c)))
+                 => ! [V1x] :
+                      ( mem(V1x,A_27a)
+                     => ! [V2y] :
+                          ( mem(V2y,A_27b)
+                         => ap(ap(c_2Epair_2EUNCURRY(A_27a,A_27a,A_27a),V0f),ap(ap(c_2Epair_2E_2C(A_27a,A_27a),V1x),V2y)) = ap(ap(V0f,V1x),V2y) ) ) ) ) ) ) )).
+
+fof(mem_c_2Equotient__pair_2E_23_23_23,axiom,(
+    ! [A_27a] :
+      ( ne(A_27a)
+     => ! [A_27b] :
+          ( ne(A_27b)
+         => ! [A_27c] :
+              ( ne(A_27c)
+             => ! [A_27d] :
+                  ( ne(A_27d)
+                 => mem(c_2Equotient__pair_2E_23_23_23(A_27a,A_27a,A_27a,A_27a),arr(arr(A_27a,arr(A_27c,bool)),arr(arr(A_27b,arr(A_27d,bool)),arr(ty_2Epair_2Eprod(A_27a,A_27a),arr(ty_2Epair_2Eprod(A_27c,A_27c),bool))))) ) ) ) ) )).
+
+fof(lamtp_f2024,axiom,(
+    ! [A_27b,A_27c,A_27a,A_27d,V2a] :
+      ( mem(V2a,A_27a)
+     => ! [V0R1] :
+          ( mem(V0R1,arr(A_27a,arr(A_27c,bool)))
+         => ! [V4c] :
+              ( mem(V4c,A_27c)
+             => ! [V3b] :
+                  ( mem(V3b,A_27b)
+                 => ! [V1R2] :
+                      ( mem(V1R2,arr(A_27b,arr(A_27d,bool)))
+                     => mem(f2024(A_27b,A_27c,A_27a,A_27d,V2a,V0R1,V4c,V3b,V1R2),arr(A_27d,bool)) ) ) ) ) ) )).
+
+fof(lameq_f2024,axiom,(
+    ! [A_27b,A_27c,A_27a,A_27d,V2a] :
+      ( mem(V2a,A_27a)
+     => ! [V0R1] :
+          ( mem(V0R1,arr(A_27a,arr(A_27c,bool)))
+         => ! [V4c] :
+              ( mem(V4c,A_27c)
+             => ! [V3b] :
+                  ( mem(V3b,A_27b)
+                 => ! [V1R2] :
+                      ( mem(V1R2,arr(A_27b,arr(A_27d,bool)))
+                     => ! [V5d] :
+                          ( mem(V5d,A_27d)
+                         => ap(f2024(A_27b,A_27c,A_27a,A_27d,V2a,V0R1,V4c,V3b,V1R2),V5d) = ap(ap(c_2Ebool_2E_2F_5C,ap(ap(V0R1,V2a),V4c)),ap(ap(V1R2,V3b),V5d)) ) ) ) ) ) ) )).
+
+fof(lamtp_f2023,axiom,(
+    ! [A_27d,A_27a,A_27b,A_27c,V2a] :
+      ( mem(V2a,A_27a)
+     => ! [V0R1] :
+          ( mem(V0R1,arr(A_27a,arr(A_27c,bool)))
+         => ! [V3b] :
+              ( mem(V3b,A_27b)
+             => ! [V1R2] :
+                  ( mem(V1R2,arr(A_27b,arr(A_27d,bool)))
+                 => mem(f2023(A_27d,A_27a,A_27b,A_27c,V2a,V0R1,V3b,V1R2),arr(A_27c,arr(A_27d,bool))) ) ) ) ) )).
+
+fof(lameq_f2023,axiom,(
+    ! [A_27d,A_27a,A_27b,A_27c,V2a] :
+      ( mem(V2a,A_27a)
+     => ! [V0R1] :
+          ( mem(V0R1,arr(A_27a,arr(A_27c,bool)))
+         => ! [V3b] :
+              ( mem(V3b,A_27b)
+             => ! [V1R2] :
+                  ( mem(V1R2,arr(A_27b,arr(A_27d,bool)))
+                 => ! [V4c] :
+                      ( mem(V4c,A_27c)
+                     => ap(f2023(A_27d,A_27a,A_27b,A_27c,V2a,V0R1,V3b,V1R2),V4c) = f2024(A_27b,A_27c,A_27a,A_27d,V2a,V0R1,V4c,V3b,V1R2) ) ) ) ) ) )).
+
+fof(lamtp_f2022,axiom,(
+    ! [A_27c,A_27d,A_27a,A_27b,V1R2] :
+      ( mem(V1R2,arr(A_27b,arr(A_27d,bool)))
+     => ! [V0R1] :
+          ( mem(V0R1,arr(A_27a,arr(A_27c,bool)))
+         => ! [V2a] :
+              ( mem(V2a,A_27a)
+             => mem(f2022(A_27c,A_27d,A_27a,A_27b,V1R2,V0R1,V2a),arr(A_27b,arr(ty_2Epair_2Eprod(A_27c,A_27c),bool))) ) ) ) )).
+
+fof(lameq_f2022,axiom,(
+    ! [A_27c,A_27d,A_27a,A_27b,V1R2] :
+      ( mem(V1R2,arr(A_27b,arr(A_27d,bool)))
+     => ! [V0R1] :
+          ( mem(V0R1,arr(A_27a,arr(A_27c,bool)))
+         => ! [V2a] :
+              ( mem(V2a,A_27a)
+             => ! [V3b] :
+                  ( mem(V3b,A_27b)
+                 => ap(f2022(A_27c,A_27d,A_27a,A_27b,V1R2,V0R1,V2a),V3b) = ap(c_2Epair_2EUNCURRY(A_27c,A_27c,A_27c),f2023(A_27d,A_27a,A_27b,A_27c,V2a,V0R1,V3b,V1R2)) ) ) ) ) )).
+
+fof(lamtp_f2021,axiom,(
+    ! [A_27b,A_27d,A_27c,A_27a,V1R2] :
+      ( mem(V1R2,arr(A_27b,arr(A_27d,bool)))
+     => ! [V0R1] :
+          ( mem(V0R1,arr(A_27a,arr(A_27c,bool)))
+         => mem(f2021(A_27b,A_27d,A_27c,A_27a,V1R2,V0R1),arr(A_27a,arr(A_27b,arr(ty_2Epair_2Eprod(A_27c,A_27c),bool)))) ) ) )).
+
+fof(lameq_f2021,axiom,(
+    ! [A_27b,A_27d,A_27c,A_27a,V1R2] :
+      ( mem(V1R2,arr(A_27b,arr(A_27d,bool)))
+     => ! [V0R1] :
+          ( mem(V0R1,arr(A_27a,arr(A_27c,bool)))
+         => ! [V2a] :
+              ( mem(V2a,A_27a)
+             => ap(f2021(A_27b,A_27d,A_27c,A_27a,V1R2,V0R1),V2a) = f2022(A_27c,A_27d,A_27a,A_27b,V1R2,V0R1,V2a) ) ) ) )).
+
+fof(ax_thm_2Equotient__pair_2EPAIR__REL,axiom,(
+    ! [A_27a] :
+      ( ne(A_27a)
+     => ! [A_27b] :
+          ( ne(A_27b)
+         => ! [A_27c] :
+              ( ne(A_27c)
+             => ! [A_27d] :
+                  ( ne(A_27d)
+                 => ! [V0R1] :
+                      ( mem(V0R1,arr(A_27a,arr(A_27c,bool)))
+                     => ! [V1R2] :
+                          ( mem(V1R2,arr(A_27b,arr(A_27d,bool)))
+                         => ap(ap(c_2Equotient__pair_2E_23_23_23(A_27a,A_27a,A_27a,A_27a),V0R1),V1R2) = ap(c_2Epair_2EUNCURRY(A_27a,A_27a,A_27a),f2021(A_27b,A_27d,A_27c,A_27a,V1R2,V0R1)) ) ) ) ) ) ) )).
+
+fof(conj_thm_2Equotient__pair_2EPAIR__REL__THM,conjecture,(
+    ! [A_27a] :
+      ( ne(A_27a)
+     => ! [A_27b] :
+          ( ne(A_27b)
+         => ! [A_27c] :
+              ( ne(A_27c)
+             => ! [A_27d] :
+                  ( ne(A_27d)
+                 => ! [V0R1] :
+                      ( mem(V0R1,arr(A_27a,arr(A_27c,bool)))
+                     => ! [V1R2] :
+                          ( mem(V1R2,arr(A_27b,arr(A_27d,bool)))
+                         => ! [V2a] :
+                              ( mem(V2a,A_27a)
+                             => ! [V3b] :
+                                  ( mem(V3b,A_27b)
+                                 => ! [V4c] :
+                                      ( mem(V4c,A_27c)
+                                     => ! [V5d] :
+                                          ( mem(V5d,A_27d)
+                                         => ( p(ap(ap(ap(ap(c_2Equotient__pair_2E_23_23_23(A_27a,A_27a,A_27a,A_27a),V0R1),V1R2),ap(ap(c_2Epair_2E_2C(A_27a,A_27a),V2a),V3b)),ap(ap(c_2Epair_2E_2C(A_27c,A_27c),V4c),V5d)))
+                                          <=> ( p(ap(ap(V0R1,V2a),V4c))
+                                              & p(ap(ap(V1R2,V3b),V5d)) ) ) ) ) ) ) ) ) ) ) ) ) )).
